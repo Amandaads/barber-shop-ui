@@ -21,35 +21,25 @@ import { SnackbarManagerService } from '../../services/snackbar-manager.service'
   ]
 })
 export class NewClientComponent implements OnDestroy{
-  
+
   
   private httpSubscription?: Subscription
-
 
 
   constructor(@Inject(SERVICES_TOKEN.HTTP.CLIENT)private readonly httpService: ICLientService,
   @Inject(SERVICES_TOKEN.SNACKBAR) private readonly snackBarManager:ISnackBarManagerService,
   private readonly router: Router
 ){}
-  
-  
   ngOnDestroy(): void {
     if(this.httpSubscription){
       this.httpSubscription.unsubscribe()
     }
   }
   onSubmitClient(value: ClientModelForm){
-
     const {id, ...request} = value
-
     this.httpSubscription=this.httpService.save(request).subscribe(_ => {
       this.snackBarManager.show('Usuario cadastrado com sucesso')
       this.router.navigate(['clients/list'])
-
-
-
     })
   }
-
-
 }
