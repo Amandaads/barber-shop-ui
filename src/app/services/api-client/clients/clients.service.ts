@@ -26,6 +26,6 @@ export class ClientsService implements ICLientService {
     return this.http.get<ListClientResponse[]>(`${this.basePath}clients`)
   }
   findById(id: number): Observable<DetailClientResponse> {
-    return this.http.get<DetailClientResponse>(`${this.basePath}clients${id}`)
+    return this.http.get<DetailClientResponse>(`${this.basePath}clients/${id}`)
   }
 }
