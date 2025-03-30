@@ -1,5 +1,4 @@
 import { ComponentType } from "@angular/cdk/overlay";
-import { ComponentFixture } from "@angular/core/testing";
 import { Observable } from "rxjs";
 import { YesNoDialogComponent } from "../commons/components/yes-no-dialog/yes-no-dialog.component";
 
